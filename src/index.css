@@ -16,3 +16,80 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
+a {
+    text-decoration: none;
+}
+
+label {
+    display: block;
+}
+
+input {
+    min-width: 300px;
+    padding: 0.5rem 1rem;
+}
+button {
+    background-color: #02aab0;
+    color: white;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 400;
+    border: 1px solid #02aab0;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    margin-top: 1rem;
+    float: right;
+}
+button:hover {
+    background-color: #02aab0;
+
+    box-shadow: 1px 1px 3px 2px rgba(123, 129, 129, 0.88);
+}
+.container,
+.container-fluid,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 576px) {
+    .container,
+    .container-sm {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container,
+    .container-sm,
+    .container-md {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .inside-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container,
+    .container-sm,
+    .container-md,
+    .container-lg,
+    .container-xl,
+    .inside-container {
+        max-width: 1140px;
+    }
+}

@@ -1,0 +1,137 @@
+nav {
+    color: rgb(249, 255, 253);
+    background-color: rgb(38, 80, 134);
+    position: relative;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+nav li {
+    list-style: none;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar_nav-container {
+    padding: 2px 60px;
+    display: flex;
+    min-height: 50px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_toogle-btns {
+    padding-right: 10px;
+    display: none;
+}
+.navbar_brandName {
+    font-size: larger;
+}
+
+.navbar_burger {
+    background: #fff;
+    height: 2px;
+    width: 20px;
+    margin: 4px;
+    transition: all 0navbar_5s ease;
+}
+
+.navbar_nav-menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar_nav-menu-item {
+    background-color: rgb(41, 172, 100);
+    margin-left: 30px;
+    padding: 4px 15px;
+    transition: all 0navbar_5s ease-in-out;
+}
+
+.navbar_brand-toggle {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar_nav-menu-div {
+    flex-grow: 2;
+    justify-self: end;
+}
+
+.navbar_nav-menu-item:hover {
+    cursor: pointer;
+    background-color: rgb(50, 143, 197);
+}
+.navbar_nav-menu-item:hover .navbar_nav-menu-item-link {
+    cursor: pointer;
+    color: rgb(4, 5, 5);
+    transition: all 0navbar_5s ease-in-out;
+}
+
+@media only screen and (max-width: 750px) {
+    .navbar_nav-menu-item {
+        margin-left: 10px;
+        padding: 4px 12px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar_nav-container {
+        flex-direction: column;
+        padding: 2px 2px;
+        align-items: stretch;
+    }
+
+    .navbar_toogle-btns {
+        padding-right: 10px;
+        display: block;
+    }
+    .navbar_brand-toggle {
+        padding-top: 5px;
+        flex-grow: none;
+    }
+    .navbar_brandName {
+        padding-left: 20px;
+    }
+
+    .navbar_nav-menu {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .navbar_nav-menu-item {
+        margin: 10px 5px;
+        padding: 5px 100px;
+        text-align: center;
+        width: 80%;
+    }
+    .navbar_burger-1 {
+        transform: rotate(-45deg) translate(-3px, 5px);
+    }
+    .navbar_burger-2 {
+        opacity: 0;
+    }
+
+    .navbar_burger-3 {
+        transform: rotate(45deg) translate(-3px, -6px);
+    }
+
+    .navbar_nav-menu-div-mobile {
+        flex-grow: none;
+        background-color: rgb(43, 58, 141);
+        position: absolute;
+        top: 50px;
+        width: 100%;
+        overflow: hidden;
+        left: -100%;
+        opacity: 1;
+        transition: all 1s ease;
+    }
+    .navbar_menu-active {
+        left: 0;
+    }
+}

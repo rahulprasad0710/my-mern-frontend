@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    min-height: 10vh;
+    position: sticky;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: #00cdac;
+}
+
+.bgShadow {
+    box-shadow: -3px 5px 7px 1px rgba(165, 243, 223, 0.41);
+}
+
+nav li {
+    list-style: none;
+}
+nav a {
+    color: rgb(43, 40, 58);
+    color: #00cdac;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar_nav-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar_toogle-btns {
+    display: none;
+}
+.navbar_brandName {
+    font-size: larger;
+    font-size: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.navbar_burger {
+    height: 2px;
+    width: 20px;
+    margin: 4px;
+    transition: all 0.5s ease;
+    background-color: #00cdac;
+}
+
+.navbar_nav-menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar_nav-menu-item {
+    min-width: 90px;
+    text-align: center;
+    margin-left: 10px;
+    transition: all 0.2s ease-in-out;
+}
+
+.navbar_nav-menu-item-link {
+    width: 100%;
+    padding: 5px 5px;
+    display: block;
+}
+
+.navbar_brand-toggle {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar_nav-menu-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navLink-active {
+    color: #00cdac;
+}
+
+.navbar_nav-menu-item:hover .navbar_nav-menu-item-link {
+    cursor: pointer;
+    color: #00cdac;
+    transition: all 0.4s ease-in-out;
+}
+
+.hireme {
+    background: #02aab0;
+    color: #ffff;
+    padding: 8px 15px;
+    border-radius: 4px;
+    border: 1px solid #02aab0;
+    transition: all 0.8s ease;
+    margin-left: 20px;
+    cursor: pointer;
+    min-width: 100px;
+    text-align: center;
+}
+
+.hireme:hover {
+    background: #ffff;
+    color: #02aab0;
+}
+
+@media only screen and (max-width: 640px) {
+    nav {
+        min-height: 8vh;
+    }
+    .hireme {
+        margin-left: 0;
+    }
+    .navbar_nav-container {
+        flex-direction: column;
+        padding: 0 2px;
+        align-items: stretch;
+    }
+
+    .navbar_toogle-btns {
+        background-color: #f5f3f3;
+        padding: 2px 5px;
+        display: block;
+        margin-right: 20px;
+        border-radius: 6px;
+    }
+    .navbar_brand-toggle {
+        padding-top: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .navbar_brandName {
+        padding-left: 2rem;
+    }
+
+    .navbar_nav-menu-div {
+        flex-direction: column;
+    }
+
+    .navbar_nav-menu {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .navbar_nav-menu-item {
+        margin: 10px 5px;
+        width: 80%;
+        text-align: center;
+        padding: 0;
+    }
+    .navbar_nav-menu-item-link {
+        width: 100%;
+        display: block;
+        padding: 10px 0;
+        font-weight: bold;
+    }
+    .navbar_burger-1 {
+        transform: rotate(-45deg) translate(-3px, 5px);
+    }
+    .navbar_burger-2 {
+        opacity: 0;
+    }
+
+    .navbar_burger-3 {
+        transform: rotate(45deg) translate(-3px, -6px);
+    }
+
+    .navbar_nav-menu-div-mobile {
+        flex-grow: none;
+        border-bottom: #00cdac 1px solid;
+        position: absolute;
+        top: 10vh;
+        background-color: #ffff;
+        width: 100%;
+        overflow: hidden;
+        left: -100%;
+        opacity: 1;
+        transition: all 1s ease;
+        height: 60vh;
+        justify-content: space-around;
+    }
+    .navbar_menu-active {
+        left: 0;
+    }
+
+    .navbar-searchbox {
+        margin-bottom: 20px;
+    }
+}
+
+.brandText {
+    color: #00cdac;
+}
