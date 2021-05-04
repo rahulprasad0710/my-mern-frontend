@@ -1,15 +1,24 @@
 .book-form {
     display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
+.form-text {
+    display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
-/* .image-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-} */
-.forms {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1rem;
+
+.btn-edits {
+    min-width: 200px;
+}
+.btn-danger {
+    background-color: #e76f51;
+    margin-right: 2rem;
+    min-width: 200px;
+}
+.btn-warning {
+    background-color: #e9c46a;
+    min-width: 200px;
 }

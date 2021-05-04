@@ -2,9 +2,15 @@ import "./navbar.css";
 
 import React, { useState } from "react";
 
+import { BsBookmarks } from "react-icons/bs";
+import { FiUser } from "react-icons/fi";
+import { IoCartOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
-// import logo from "../../asset/logos/logomain.svg"
+// import { BsBookmarksFill } from "react-icons/bs";
+
+
+
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -70,7 +76,7 @@ const Navbar = () => {
                                 activeClassName="navLink-active"
                                 className="navbar_nav-menu-item-link"
                                 to="/profile">
-                                Profile
+                                <FiUser />
                             </NavLink>
                         </li>
 
@@ -80,7 +86,7 @@ const Navbar = () => {
                                 className="navbar_nav-menu-item-link"
                                 activeClassName="navLink-active"
                                 to="/bookmark/">
-                                BM
+                                <BsBookmarks />
                             </NavLink>
                         </li>
                         <li className="navbar_nav-menu-item">
@@ -89,7 +95,7 @@ const Navbar = () => {
                                 className="navbar_nav-menu-item-link"
                                 activeClassName="navLink-active"
                                 to="/cart/">
-                                Cart
+                                <IoCartOutline />
                             </NavLink>
                         </li>
                     </ul>

@@ -6,7 +6,8 @@ import AddBook from "./components/admin/AddBook";
 import Layout from "./components/layout/Layout";
 import Login from "./components/Auth/Login";
 import Main from "./components/main/Main.jsx";
-import Profile from "./components/Auth/Profile";
+import MyAddress from "./components/Profile/MyAddress.jsx";
+import Profile from "./components/Profile/Profile";
 import Register from "./components/Auth/Register";
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
                         <Route path="/profile">
                             <Profile />
                         </Route>
+                        <Route path="/profile/myaddress">
+                            <MyAddress />
+                        </Route>
+
                         <Route path="/admin/addbook">
                             <AddBook />
                         </Route>
