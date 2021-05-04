@@ -1,0 +1,15 @@
+.book-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+/* .image-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+} */
+.forms {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}

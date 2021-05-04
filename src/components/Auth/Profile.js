@@ -1,7 +1,8 @@
 import React, { useContext, useState } from "react";
 
-import AuthContext from "../../context/Authcontext";
-import { NavLink } from "react-router-dom";
+import axios from "axios";
+
+axios.defaults.withCredentials = true;
 
 const Profile = () => {
     const [addressName, setAddressName] = useState("");
@@ -14,6 +15,14 @@ const Profile = () => {
         e.preventDefault();
         const addressData = { addressName, ward, tole, city, district };
         console.log(addressData);
+
+        try {
+            const url = "http://localhost:5000/account/profile";
+            const response = await axios.post(url, addressData);
+            console.log(response);
+        } catch (error) {
+            console.log("error", error);
+        }
     };
 
     return (

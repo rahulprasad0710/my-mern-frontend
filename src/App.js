@@ -2,6 +2,7 @@ import "./App.css";
 
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
+import AddBook from "./components/admin/AddBook";
 import Layout from "./components/layout/Layout";
 import Login from "./components/Auth/Login";
 import Main from "./components/main/Main.jsx";
@@ -25,6 +26,9 @@ function App() {
                         </Route>
                         <Route path="/profile">
                             <Profile />
+                        </Route>
+                        <Route path="/admin/addbook">
+                            <AddBook />
                         </Route>
                     </Switch>
                 </Layout>
