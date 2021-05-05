@@ -1,20 +1,16 @@
 import "./navbar.css";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
+import AuthContext from "../../context/Authcontext";
 import { BsBookmarks } from "react-icons/bs";
 import { FiUser } from "react-icons/fi";
 import { IoCartOutline } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
 
-// import { BsBookmarksFill } from "react-icons/bs";
-
-
-
-
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
-
+    const { user, logoutFn } = useContext(AuthContext);
     const toggleMenuHandler = () => {
         setToggleMenu(!toggleMenu);
         console.log(toggleMenu);
@@ -100,9 +96,13 @@ const Navbar = () => {
                         </li>
                     </ul>
 
-                    <NavLink className="hireme" to="/login">
-                        Login
-                    </NavLink>
+                    {user ? (
+                        <button onClick={logoutFn}>Logout</button>
+                    ) : (
+                        <NavLink className="hireme" to="/login">
+                            Login
+                        </NavLink>
+                    )}
                 </div>
             </div>
         </nav>

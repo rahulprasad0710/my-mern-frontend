@@ -10,6 +10,18 @@ export const AuthProvider = ({ children }) => {
     const [error, seterror] = useState(null);
 
     useEffect(() => {
+        const checkUserLoggedInFn = async (e) => {
+            try {
+                const url = "http://localhost:5000/profile/myinfo";
+                var infoResponse = await axios.get(url, {
+                    withCredentials: true,
+                });
+                console.log(infoResponse);
+                setuser(infoResponse.data._id);
+            } catch (error) {
+                console.log(error);
+            }
+        };
         checkUserLoggedInFn();
     }, []);
 
@@ -37,9 +49,17 @@ export const AuthProvider = ({ children }) => {
             seterror(error);
         }
     };
-    const logoutFn = async () => {};
-
-    const checkUserLoggedInFn = async () => {};
+    const logoutFn = async () => {
+        try {
+            const url = "http://localhost:5000/account/logout";
+            const response = await axios.get(url);
+            console.log(response);
+            setuser(null);
+        } catch (error) {
+            console.log("error", error);
+            seterror(error);
+        }
+    };
 
     return (
         <AuthContext.Provider

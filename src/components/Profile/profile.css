@@ -1,0 +1,55 @@
+.grid-container {
+    margin: auto;
+    margin: 2rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 3rem;
+    border-bottom: 1px #00cdac solid;
+}
+.profile-box {
+    height: 90px;
+    width: 250px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px #00cdac solid;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease-in;
+}
+
+.accNote {
+    opacity: 0.6;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: rgb(24, 24, 24);
+    display: block;
+}
+
+.profile-box:hover {
+    box-shadow: 1px 1px 3px 3px rgba(166, 240, 227, 0.466);
+}
+.info-box {
+    margin-top: 2rem;
+    border: 1px #00cdac solid;
+    border-radius: 0.5rem;
+    max-width: 600px;
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+
+.info-group {
+    border-bottom: 1px #00cdac solid;
+    margin: 1rem;
+}
+.info-group h4 {
+    opacity: 0.6;
+}
+
+.btn {
+    margin: 1rem;
+}
+.btn-password {
+    background-color: coral;
+    margin: 1rem;
+}
