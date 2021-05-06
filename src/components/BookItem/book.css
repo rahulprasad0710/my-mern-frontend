@@ -1,0 +1,80 @@
+.new-books {
+    padding: 2rem 0rem;
+}
+.new-books h2 {
+    padding: 1rem 0rem;
+    color: rgb(27, 41, 59);
+    border-bottom: 1px solid #00cdac;
+}
+
+.new-books .view-all {
+    text-align: center;
+
+    padding-top: 1rem;
+    color: #00cdac;
+    border-bottom: 1px solid #00cdac;
+    transform: all 0.4s ease;
+    cursor: pointer;
+}
+
+.view-all:hover {
+    color: rgb(23, 163, 152);
+}
+.all-books-item {
+    padding: 2rem 0rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.book-Box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 365px;
+    max-height: 600px;
+    margin: auto;
+    padding: 1rem;
+    box-shadow: 1px 1px 1px 1px rgba(194, 201, 198, 0.932);
+}
+.book-image-box {
+    position: relative;
+}
+
+.all-books-item img {
+    width: 100%;
+    max-height: 475px;
+}
+.book-info-box {
+    justify-self: left;
+    align-self: flex-start;
+    width: 100%;
+}
+
+.bookmark-box {
+    top: 0%;
+    right: 0%;
+    position: absolute;
+    padding: 3px 4px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.096);
+    color: #00cdac;
+    font-size: 2.2rem;
+    transform: all 0.3s ease;
+}
+
+.mrp {
+    opacity: 0.6;
+    font-size: 14px;
+    letter-spacing: 0px;
+    color: rgb(24, 24, 24);
+    text-decoration: line-through;
+}
+
+.actualPrice {
+    align-self: flex-end;
+    float: right;
+}

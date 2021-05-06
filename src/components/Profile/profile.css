@@ -53,3 +53,13 @@
     background-color: coral;
     margin: 1rem;
 }
+.info-box-both {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.opactiy-info {
+    opacity: 0.5;
+    background-color: rgba(143, 184, 170, 0.171);
+}

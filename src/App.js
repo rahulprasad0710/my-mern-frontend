@@ -13,31 +13,29 @@ import Register from "./components/Auth/Register";
 function App() {
     return (
         <Router>
-            <div className="App">
-                <Layout>
-                    <Switch>
-                        <Route exact path="/">
-                            <Main />
-                        </Route>
-                        <Route path="/login">
-                            <Login />
-                        </Route>
-                        <Route path="/register">
-                            <Register />
-                        </Route>
-                        <Route path="/profile">
-                            <Profile />
-                        </Route>
-                        <Route path="/profile/myaddress">
-                            <MyAddress />
-                        </Route>
+            <Layout>
+                <Switch>
+                    <Route exact path="/">
+                        <Main />
+                    </Route>
+                    <Route path="/login">
+                        <Login />
+                    </Route>
+                    <Route path="/register">
+                        <Register />
+                    </Route>
+                    <Route path="/profile">
+                        <Profile />
+                    </Route>
+                    <Route path="/profile/myaddress">
+                        <MyAddress />
+                    </Route>
 
-                        <Route path="/admin/addbook">
-                            <AddBook />
-                        </Route>
-                    </Switch>
-                </Layout>
-            </div>
+                    <Route path="/admin/addbook">
+                        <AddBook />
+                    </Route>
+                </Switch>
+            </Layout>
         </Router>
     );
 }

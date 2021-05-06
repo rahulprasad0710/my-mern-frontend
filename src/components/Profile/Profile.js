@@ -16,7 +16,7 @@ axios.defaults.withCredentials = true;
 const Profile = () => {
     let { path, url } = useRouteMatch();
     return (
-        <div>
+        <div className="container-md profile-pge">
             <h3>Hi,Rahul</h3>
             <div className="grid-container">
                 <Link to={`${url}/myinfo`}>

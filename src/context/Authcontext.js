@@ -12,12 +12,12 @@ export const AuthProvider = ({ children }) => {
     useEffect(() => {
         const checkUserLoggedInFn = async (e) => {
             try {
-                const url = "http://localhost:5000/profile/myinfo";
+                const url = "http://localhost:5000/auth";
                 var infoResponse = await axios.get(url, {
                     withCredentials: true,
                 });
                 console.log(infoResponse);
-                setuser(infoResponse.data._id);
+                setuser(infoResponse.data.existingUserInfo._id);
             } catch (error) {
                 console.log(error);
             }
@@ -25,15 +25,14 @@ export const AuthProvider = ({ children }) => {
         checkUserLoggedInFn();
     }, []);
 
-    const registerFn = async ({ email, password, mobileNo }) => {
+    const registerFn = async (values) => {
         try {
+            console.log("auth", values);
             const url = "http://localhost:5000/account/register";
-            const response = await axios.post(url, {
-                email,
-                password,
-                mobileNo,
-            });
-            console.log(response);
+            const response = await axios.post(url, values);
+            console.log("response", response);
+            const daata = await response.json();
+            console.log("daata", daata);
         } catch (error) {
             console.log("error", error);
             seterror(error);
@@ -61,9 +60,20 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    const addtoBookmarkFn = (bookmarkItem) => {
+        console.log(bookmarkItem);
+    };
+
     return (
         <AuthContext.Provider
-            value={{ user, error, registerFn, loginFn, logoutFn }}>
+            value={{
+                user,
+                error,
+                registerFn,
+                loginFn,
+                logoutFn,
+                addtoBookmarkFn,
+            }}>
             {children}
         </AuthContext.Provider>
     );

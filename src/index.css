@@ -25,7 +25,8 @@ label {
     display: block;
 }
 
-input {
+input,
+select {
     min-width: 300px;
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
@@ -46,10 +47,14 @@ button,
 button:hover,
 .input-btn:hover {
     background-color: #02aab0;
-
     box-shadow: 1px 1px 2px 2px rgba(203, 228, 228, 0.88);
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    background: rgb(226, 215, 215);
+}
 .input-btn {
     width: 100%;
     height: 3rem;
@@ -103,4 +108,8 @@ button:hover,
     .inside-container {
         max-width: 1140px;
     }
+}
+
+.text-center {
+    text-align: center;
 }

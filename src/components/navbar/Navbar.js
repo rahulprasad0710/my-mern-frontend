@@ -16,19 +16,8 @@ const Navbar = () => {
         console.log(toggleMenu);
     };
 
-    const [bgChange, setBGChange] = useState(false);
-    const changeBG = () => {
-        if (window.scrollY >= 100) {
-            setBGChange(true);
-        } else {
-            setBGChange(false);
-        }
-    };
-
-    window.addEventListener("scroll", changeBG);
-
     return (
-        <nav className={bgChange ? "navbar bgShadow " : "navbar "}>
+        <nav className="navbar ">
             <div className="navbar_nav-container container-md ">
                 <div className="navbar_brand-toggle">
                     <NavLink className="navbar_brandName" to="/">
@@ -97,7 +86,12 @@ const Navbar = () => {
                     </ul>
 
                     {user ? (
-                        <button onClick={logoutFn}>Logout</button>
+                        <NavLink
+                            onClick={logoutFn}
+                            className="hireme"
+                            to="/login">
+                            Logout
+                        </NavLink>
                     ) : (
                         <NavLink className="hireme" to="/login">
                             Login
