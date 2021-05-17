@@ -3,10 +3,11 @@ import "./App.css";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import AddBook from "./components/admin/AddBook";
+import Bookmark from "./components/bookmark/Bookmark";
 import Layout from "./components/layout/Layout";
 import Login from "./components/Auth/Login";
 import Main from "./components/main/Main.jsx";
-import MyAddress from "./components/Profile/MyAddress.jsx";
+import OneBookItem from "./components/BookItem/OneBookItem.jsx";
 import Profile from "./components/Profile/Profile";
 import Register from "./components/Auth/Register";
 
@@ -27,12 +28,20 @@ function App() {
                     <Route path="/profile">
                         <Profile />
                     </Route>
-                    <Route path="/profile/myaddress">
-                        <MyAddress />
+                    <Route path="/book/:bookID">
+                        <OneBookItem />
+                    </Route>
+
+                    <Route path="/bookmark">
+                        <Bookmark />
                     </Route>
 
                     <Route path="/admin/addbook">
                         <AddBook />
+                    </Route>
+
+                    <Route path="/book/:id">
+                        <OneBookItem />
                     </Route>
                 </Switch>
             </Layout>

@@ -1,3 +1,12 @@
 .App {
     background-color: #ffff;
 }
+.layout-main {
+    min-height: 85vh;
+}
+.footer-page {
+    margin-top: 10px;
+    color: #2a9d8f;
+    min-height: 20vh;
+    background-color: #264653;
+}

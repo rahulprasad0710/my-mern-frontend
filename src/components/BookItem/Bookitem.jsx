@@ -5,6 +5,7 @@ import React, { useContext, useState } from "react";
 import AuthContext from "../../context/Authcontext";
 import { BsBookmarks } from "react-icons/bs";
 import { BsBookmarksFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const Bookitem = ({ books }) => {
     const { addtoBookmarkFn } = useContext(AuthContext);
@@ -47,7 +48,11 @@ const Bookitem = ({ books }) => {
                                         Actual rate: Rs.{book.priceRate}{" "}
                                     </span>
                                 </h4>
-                                <button>View Details</button>
+                                <Link to={`/book/${book._id}`}>
+                                    <button className="btn-details">
+                                        View Details
+                                    </button>
+                                </Link>
                             </div>
                         </div>
                     ))}

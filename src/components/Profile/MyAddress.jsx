@@ -1,81 +1,79 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
+import EditAddress from "./EditAddress";
+import EditInfo from "./EditInfo";
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
 
 const MyAddress = () => {
-    const [addressName, setAddressName] = useState("");
-    const [ward, setWard] = useState("");
-    const [tole, setTole] = useState("");
-    const [city, setCity] = useState("");
-    const [district, setDistrict] = useState("");
+    const [infoData, setinfoData] = useState(null);
+    const [editInfoBlock, seteditInfoBlock] = useState(false);
+    useEffect(() => {
+        const userInfoFn = async () => {
+            try {
+                const url = "http://localhost:5000/profile/myaddress";
+                const infoResponse = await axios.get(url, {
+                    withCredentials: true,
+                });
+                console.log(infoResponse);
+                setinfoData(infoResponse.data.addresses);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        userInfoFn();
+    }, [editInfoBlock]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        const addressData = { addressName, ward, tole, city, district };
-        console.log(addressData);
-
-        try {
-            const url = "http://localhost:5000/account/profile";
-            const response = await axios.post(url, addressData);
-            console.log(response);
-        } catch (error) {
-            console.log("error", error);
-        }
+    const editInfoFn = () => {
+        seteditInfoBlock(true);
     };
 
     return (
-        <div>
-            <h2>Address</h2>
-            <form onSubmit={handleSubmit} type="SUBMIT">
-                <label htmlFor="addressName">Address</label>
-                <input
-                    placeholder="Address"
-                    onChange={(e) => setAddressName(e.target.value)}
-                    value={addressName}
-                    className="form-control"
-                    type="text"
-                />
-                <label htmlFor="ward">Ward</label>
-                <input
-                    type="number"
-                    placeholder="Ward"
-                    onChange={(e) => setWard(e.target.value)}
-                    value={ward}
-                    className="form-control"
-                />
-                <label htmlFor="tole">tole</label>
-                <input
-                    type="text"
-                    placeholder="Tole"
-                    onChange={(e) => setTole(e.target.value)}
-                    value={tole}
-                    className="form-control"
-                />
-                <label htmlFor="city">City/Town</label>
-                <input
-                    type="text"
-                    placeholder="City Tole ..."
-                    onChange={(e) => setCity(e.target.value)}
-                    value={city}
-                    className="form-control"
-                />
-                <label htmlFor="district">District</label>
-                <input
-                    type="text"
-                    placeholder="District"
-                    onChange={(e) => setDistrict(e.target.value)}
-                    value={district}
-                    className="form-control"
-                />
+        <div className="container-md">
+            <h2>My Addresses</h2>
+            <div className="all-address">
+                {infoData ? (
+                    infoData.map((e) => (
+                        <div
+                            className={
+                                editInfoBlock
+                                    ? "info-box opactiy-info"
+                                    : "info-box "
+                            }>
+                            <div className="info-group">
+                                <h4>Address Name</h4>
+                                <h3>{e.addressName}</h3>
+                            </div>
+                            <div className="info-group">
+                                <h4>Tole</h4>
+                                <h3>{e.tole}</h3>
+                            </div>
+                            <div className="info-group">
+                                <h4>Ward</h4>
+                                <h3>{e.ward}</h3>
+                            </div>
+                            <div className="info-group">
+                                <h4>City/Town</h4>
+                                <h3>{e.city}</h3>
+                            </div>
 
-                <br />
-
-                <button type="submit" onClick={handleSubmit}>
-                    SUBMIT
-                </button>
-            </form>
+                            <div className="info-group">
+                                <h4>District</h4>
+                                <h3>{e.district}</h3>
+                            </div>
+                            <button
+                                onClick={editInfoFn}
+                                className="btn btn-save">
+                                Edit Address
+                            </button>
+                        </div>
+                    ))
+                ) : (
+                    <p> Loading.... </p>
+                )}
+            </div>
+            {editInfoBlock ? <EditAddress /> : ""}
         </div>
     );
 };

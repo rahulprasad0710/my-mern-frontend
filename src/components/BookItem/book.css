@@ -33,8 +33,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 365px;
-    max-height: 600px;
+    width: 325px;
+    max-height: 530px;
     margin: auto;
     padding: 1rem;
     box-shadow: 1px 1px 1px 1px rgba(194, 201, 198, 0.932);
@@ -45,7 +45,7 @@
 
 .all-books-item img {
     width: 100%;
-    max-height: 475px;
+    max-height: 395px;
 }
 .book-info-box {
     justify-self: left;
@@ -77,4 +77,87 @@
 .actualPrice {
     align-self: flex-end;
     float: right;
+}
+
+.btn-details {
+    display: block;
+    margin-top: 0.5rem;
+    min-width: 100%;
+}
+
+/* one page clasees */
+
+.one-book-page {
+    justify-content: space-around;
+    padding-top: 2rem;
+    display: flex;
+}
+.onebook-bookImage {
+    width: 50%;
+}
+.onebook-bookInfo {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    border: 1px salmon solid;
+    width: 40%;
+    padding: 2rem;
+    padding-top: 0px;
+}
+.btnGroup {
+    width: 100%;
+}
+
+.addtocart {
+    float: right;
+    min-width: 84%;
+}
+
+.bookmarkbtn {
+    float: left;
+    min-width: 15%;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.2rem;
+}
+
+.onebookimg {
+    max-width: 450px;
+    max-height: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .onebookimg {
+        max-width: 300px;
+        max-height: auto;
+    }
+    .onebook-bookImage {
+        width: 50%;
+    }
+    .onebook-bookInfo {
+        width: 50%;
+        padding: 1rem;
+        padding-top: 0px;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .one-book-page {
+        padding: 1rem;
+        flex-direction: column;
+    }
+    .onebookimg {
+        max-width: 100%;
+        max-height: auto;
+    }
+    .onebook-bookImage {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+    .onebook-bookInfo {
+        min-height: 380px;
+        margin-top: 1rem;
+        width: 100%;
+        padding: 1rem;
+        padding-top: 0px;
+    }
 }

@@ -19,7 +19,7 @@ const Register = () => {
     };
 
     return (
-        <div>
+        <div className="container">
             <h2>Login Here</h2>
             <form onSubmit={handleSubmit} type="SUBMIT">
                 <label htmlFor="mobileNo">Mobile No</label>

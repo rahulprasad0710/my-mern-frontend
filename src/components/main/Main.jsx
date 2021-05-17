@@ -14,7 +14,7 @@ const Main = () => {
     useEffect(() => {
         const getBooksItemFn = async (e) => {
             try {
-                const url = "http://localhost:5000/home";
+                const url = "http://localhost:5000/book";
                 var infoResponse = await axios.get(url, {
                     withCredentials: true,
                 });

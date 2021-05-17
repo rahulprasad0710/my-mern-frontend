@@ -8,7 +8,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [user, setuser] = useState(null);
     const [error, seterror] = useState(null);
-
+    const [userInfo, setuserInfo] = useState(null);
     useEffect(() => {
         const checkUserLoggedInFn = async (e) => {
             try {
@@ -17,6 +17,7 @@ export const AuthProvider = ({ children }) => {
                     withCredentials: true,
                 });
                 console.log(infoResponse);
+                setuserInfo(infoResponse.data.existingUserInfo);
                 setuser(infoResponse.data.existingUserInfo._id);
             } catch (error) {
                 console.log(error);
@@ -59,9 +60,18 @@ export const AuthProvider = ({ children }) => {
             seterror(error);
         }
     };
-
-    const addtoBookmarkFn = (bookmarkItem) => {
-        console.log(bookmarkItem);
+    //Frontend bookID = 60916a0371195f29c8657a17
+    const addtoBookmarkFn = async (bookID) => {
+        console.log(bookID);
+        const book = bookID;
+        try {
+            const url = "http://localhost:5000/profile/bookmark";
+            const response = await axios.post(url, { book });
+            console.log(response);
+        } catch (error) {
+            console.log("error", error);
+            seterror(error);
+        }
     };
 
     return (
@@ -69,6 +79,7 @@ export const AuthProvider = ({ children }) => {
             value={{
                 user,
                 error,
+                userInfo,
                 registerFn,
                 loginFn,
                 logoutFn,
