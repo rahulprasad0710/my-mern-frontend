@@ -1,28 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
+import AuthContext from "../../context/Authcontext";
 import EditInfo from "./EditInfo";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 axios.defaults.withCredentials = true;
 
-const Register = () => {
+const MyInfo = () => {
+    const { user } = useContext(AuthContext);
+    const history = useHistory();
     const [infoData, setinfoData] = useState(null);
     const [editInfoBlock, seteditInfoBlock] = useState(false);
     useEffect(() => {
-        const userInfoFn = async (e) => {
-            try {
-                const url = "http://localhost:5000/profile/myinfo";
-                const infoResponse = await axios.get(url, {
-                    withCredentials: true,
-                });
-                console.log(infoResponse);
-                setinfoData(infoResponse.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        userInfoFn();
-    }, [editInfoBlock]);
+        if (!user) {
+            history.push("/profile");
+            return;
+        } else {
+            const userInfoFn = async (e) => {
+                try {
+                    const url = "http://localhost:5000/profile/myinfo";
+                    const infoResponse = await axios.get(url, {
+                        withCredentials: true,
+                    });
+                    console.log(infoResponse);
+                    setinfoData(infoResponse.data);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
+            userInfoFn();
+        }
+    }, [editInfoBlock, history, user]);
 
     const editInfoFn = () => {
         seteditInfoBlock(true);
@@ -30,8 +39,6 @@ const Register = () => {
 
     return (
         <div>
-            <h2>My Info</h2>
-
             <div className="info-box-both">
                 {infoData ? (
                     <div
@@ -66,10 +73,10 @@ const Register = () => {
                             <h3>{infoData.regEmail}</h3>
                         </div>
 
-                        <button className="btn btn-password">
+                        <button className=" btn-password">
                             Change Password
                         </button>
-                        <button onClick={editInfoFn} className="btn btn-save">
+                        <button onClick={editInfoFn} className="btn-block btn ">
                             Edit info
                         </button>
                     </div>
@@ -89,4 +96,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default MyInfo;

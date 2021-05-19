@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import AddBook from "./components/admin/AddBook";
 import Bookmark from "./components/bookmark/Bookmark";
+import Cart from "./components/cart/Cart";
 import Layout from "./components/layout/Layout";
 import Login from "./components/Auth/Login";
 import Main from "./components/main/Main.jsx";
@@ -34,6 +35,9 @@ function App() {
 
                     <Route path="/bookmark">
                         <Bookmark />
+                    </Route>
+                    <Route path="/cart">
+                        <Cart />
                     </Route>
 
                     <Route path="/admin/addbook">

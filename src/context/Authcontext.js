@@ -9,31 +9,30 @@ export const AuthProvider = ({ children }) => {
     const [user, setuser] = useState(null);
     const [error, seterror] = useState(null);
     const [userInfo, setuserInfo] = useState(null);
+
+    const checkUserLoggedInFn = async (e) => {
+        try {
+            const url = "http://localhost:5000/auth";
+            var infoResponse = await axios.get(url, {
+                withCredentials: true,
+            });
+            console.log(infoResponse);
+            setuserInfo(infoResponse.data.existingUserInfo);
+            setuser(infoResponse.data.existingUserInfo._id);
+        } catch (error) {
+            console.log(error);
+        }
+    };
     useEffect(() => {
-        const checkUserLoggedInFn = async (e) => {
-            try {
-                const url = "http://localhost:5000/auth";
-                var infoResponse = await axios.get(url, {
-                    withCredentials: true,
-                });
-                console.log(infoResponse);
-                setuserInfo(infoResponse.data.existingUserInfo);
-                setuser(infoResponse.data.existingUserInfo._id);
-            } catch (error) {
-                console.log(error);
-            }
-        };
         checkUserLoggedInFn();
-    }, []);
+    }, [user]);
 
     const registerFn = async (values) => {
         try {
             console.log("auth", values);
             const url = "http://localhost:5000/account/register";
             const response = await axios.post(url, values);
-            console.log("response", response);
-            const daata = await response.json();
-            console.log("daata", daata);
+            return response;
         } catch (error) {
             console.log("error", error);
             seterror(error);
@@ -43,10 +42,9 @@ export const AuthProvider = ({ children }) => {
         try {
             const url = "http://localhost:5000/account/login";
             const response = await axios.post(url, loginData);
-            console.log(response);
+            return response;
         } catch (error) {
-            console.log("error", error);
-            seterror(error);
+            return error.response;
         }
     };
     const logoutFn = async () => {
@@ -84,6 +82,7 @@ export const AuthProvider = ({ children }) => {
                 loginFn,
                 logoutFn,
                 addtoBookmarkFn,
+                checkUserLoggedInFn,
             }}>
             {children}
         </AuthContext.Provider>

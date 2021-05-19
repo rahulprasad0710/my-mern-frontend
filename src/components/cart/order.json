@@ -1,0 +1,92 @@
+{
+    "orderItems": [
+        {
+            "_id": "60a3657c330e394294fdae2e",
+            "book": {
+                "_id": "60a3647bf91261396459e1ea",
+                "title": "Your Soul is a River",
+                "publication": "Ekta",
+                "quantityInStock": 50,
+                "mrpRate": 450,
+                "subject": "FIction",
+                "level": "all",
+                "author": "NIkita ",
+                "edition": "Gill",
+                "priceRate": 400,
+                "description": "This is a book about the journey of healing",
+                "image": "http://res.cloudinary.com/rahulbaadal/image/upload/v1621320828/bookstore/bx20sid8luu9brrig1bw.jpg",
+                "createdAt": "2021-05-18T06:53:47.403Z",
+                "updatedAt": "2021-05-18T06:53:47.403Z",
+                "__v": 0
+            },
+            "quantity": 2,
+            "__v": 0
+        },
+        {
+            "_id": "60a3657c330e394294fdae2f",
+            "book": {
+                "_id": "60a364b3f91261396459e1ec",
+                "title": "Milk and Honey",
+                "publication": "ReadMore",
+                "quantityInStock": 20,
+                "mrpRate": 600,
+                "subject": "FIction",
+                "level": "all",
+                "author": "NIkita ",
+                "edition": "Gill",
+                "priceRate": 500,
+                "description": "This is a book about the journey of healing",
+                "image": "http://res.cloudinary.com/rahulbaadal/image/upload/v1621320884/bookstore/eejoewrml9y419r4tlde.jpg",
+                "createdAt": "2021-05-18T06:54:43.465Z",
+                "updatedAt": "2021-05-18T06:54:43.465Z",
+                "__v": 0
+            },
+            "quantity": 1,
+            "__v": 0
+        }
+    ],
+    "isPaid": false,
+    "_id": "60a3657c330e394294fdae30",
+    "user": {
+        "bookmarks": [],
+        "_id": "60a2679f686443692c227f6d",
+        "mobileNo": "9819812344",
+        "regEmail": "raulshah15412@gmail.com",
+        "passwordHash": "$2b$10$REBvZisioegA.WF3KY/sqOhshDXBfqvDrVh6QyS0Ya.7a/bY9Nhku",
+        "firstName": "rahul",
+        "lastName": "prasad",
+        "level": "MBA Marketig",
+        "addresses": [
+            {
+                "_id": "60a4b5715270064560ee192c",
+                "addressName": "ramanad CHowk",
+                "ward": 8,
+                "tole": "ramanand chowk",
+                "city": "jankpur",
+                "district": "Dhanusha",
+                "updatedAt": "2021-05-19T06:51:29.579Z",
+                "createdAt": "2021-05-19T06:51:29.579Z"
+            },
+            {
+                "_id": "60a4b8255270064560ee192d",
+                "addressName": "bakaiya- 4",
+                "ward": 4,
+                "tole": "Jureli",
+                "city": "Bakaiya",
+                "district": "Makawanpur",
+                "updatedAt": "2021-05-19T07:03:01.157Z",
+                "createdAt": "2021-05-19T07:03:01.157Z"
+            }
+        ],
+        "createdAt": "2021-05-17T12:54:55.269Z",
+        "updatedAt": "2021-05-19T07:03:01.157Z",
+        "__v": 0
+    },
+    "paymentMethod": "COD",
+    "status": "order placed and marked ready for shipping ",
+    "totalMRPPrice": 1500,
+    "totalActualPrice": 1300,
+    "createdAt": "2021-05-18T06:58:04.821Z",
+    "updatedAt": "2021-05-18T06:58:04.821Z",
+    "__v": 0
+}

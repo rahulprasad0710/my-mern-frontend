@@ -86,7 +86,9 @@ const OneBookItem = (props) => {
                                     <BsBookmarks />
                                 )}
                             </button>
-                            <button className="addtocart">ADD TO CART</button>
+                            <button className="addtocart btn-block">
+                                ADD TO CART
+                            </button>
                         </div>
                     </div>
                 </div>

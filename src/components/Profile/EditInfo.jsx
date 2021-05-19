@@ -46,10 +46,9 @@ const EditInfo = ({ infoData, editBlock }) => {
     };
 
     return (
-        <div className="container-md register-page">
-            <h2 className="text-center">Edit Info</h2>
+        <div className="edit-info-box">
             <ToastContainer position="top-center" />
-            <div className="register-form">
+            <div className="edit-info-inner">
                 <form
                     className="register-form-inner"
                     onSubmit={handleSubmit}
@@ -125,11 +124,10 @@ const EditInfo = ({ infoData, editBlock }) => {
                     </div>
                 </form>
                 <input
-                    style={{ width: "640px" }}
+                    className="edit-submit"
                     onClick={handleSubmit}
                     type="submit"
                     value="Submit"
-                    className="input-btn"
                 />
             </div>
         </div>

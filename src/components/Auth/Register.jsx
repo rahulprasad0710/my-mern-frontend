@@ -1,14 +1,21 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./logRegister.css";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 
 import AuthContext from "../../context/Authcontext";
-import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
-    const { registerFn } = useContext(AuthContext);
+    const history = useHistory();
+    const { registerFn, user, checkUserLoggedInFn } = useContext(AuthContext);
+
+    useEffect(() => {
+        if (user) {
+            history.push("/");
+        }
+    }, [user, history]);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setvalues({ ...values, [name]: value });
@@ -36,17 +43,15 @@ const Register = () => {
             toast.error("Password should be of atleast 8 characters");
             return;
         } else if (values.password !== values.passwordAgain) {
-            toast.error("Password doesnot match");
+            toast.error("Password does not match");
             return;
         } else {
-            console.log(values);
-            const { status, message } = registerFn(values);
-
-            if (status === 200) {
-                toast.success(message);
-                <Redirect to="/" />;
-            } else {
-                toast.error(message);
+            const data = await registerFn(values);
+            console.log(data);
+            if (data.status === 200) {
+                toast.success(data.data.message);
+                checkUserLoggedInFn();
+                history.push("/");
             }
         }
     };
@@ -69,7 +74,6 @@ const Register = () => {
                             value={values.firstName}
                             type="text"
                             placeholder="First Name"
-                            className="form-control"
                         />
                     </div>
                     <div className="form-group">
@@ -80,7 +84,7 @@ const Register = () => {
                             id="lastName"
                             value={values.lastName}
                             placeholder="Last name"
-                            className="form-control"
+                            className="register-input"
                             type="text"
                         />
                     </div>
@@ -93,7 +97,7 @@ const Register = () => {
                             value={values.level}
                             type="text"
                             placeholder="Level or class"
-                            className="form-control"
+                            className="register-input"
                         />
                     </div>
                     <div className="form-group">
@@ -105,7 +109,7 @@ const Register = () => {
                             value={values.mobileNo}
                             type="number"
                             placeholder="mobileNo"
-                            className="form-control"
+                            className="register-input"
                         />
                     </div>
                     <div className="form-group">
@@ -117,7 +121,7 @@ const Register = () => {
                             value={values.email}
                             type="email"
                             placeholder="Writter"
-                            className="form-control"
+                            className="register-input"
                         />
                     </div>
                     <div className="form-group">
@@ -129,7 +133,7 @@ const Register = () => {
                             value={values.password}
                             type="password"
                             placeholder="password"
-                            className="form-control"
+                            className="register-input"
                         />
                     </div>
 
